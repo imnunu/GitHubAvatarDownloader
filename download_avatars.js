@@ -32,14 +32,8 @@ function getRepoContributors(repoOwner, repoName, cb) {
       }
   });
 }
-//==========================================================
 
-getRepoContributors(repoOwner, repoName, function(result) {
 
-  result.forEach(function(avatar){
-    // console.log(avatar.avatar_url);
-    downloadImageByURL(avatar.avatar_url, avatar.login)
-  });
 
 
   function downloadImageByURL(url, filePath) {
@@ -54,9 +48,14 @@ getRepoContributors(repoOwner, repoName, function(result) {
        .pipe(fs.createWriteStream("./avatars/" + filePath + ".jpg"))
 
   }
+//==========================================================
+
+getRepoContributors(repoOwner, repoName, function(result) {
+
+  result.forEach(function(avatar){
+    // console.log(avatar.avatar_url);
+    downloadImageByURL(avatar.avatar_url, avatar.login)
+  });
+
 });
 
-  // getRepoContributors("jquery", "jquery", function(err, result) {
-  //   console.log("Errors:", err);
-  //   console.log("Result:", result);
-  // });
