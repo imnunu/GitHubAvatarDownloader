@@ -36,18 +36,18 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 
 
-  function downloadImageByURL(url, filePath) {
+function downloadImageByURL(url, filePath) {
 
-    request.get(url)
-       .on('error', function (err) {
-         throw err;
-       })
-       .on('response', function (response) {
-         console.log('Response Status Message: ', response.statusMessage);
-       })
-       .pipe(fs.createWriteStream("./avatars/" + filePath + ".jpg"))
+  request.get(url)
+     .on('error', function (err) {
+       throw err;
+     })
+     .on('response', function (response) {
+       console.log('Response Status Message: ', response.statusMessage);
+     })
+     .pipe(fs.createWriteStream("./avatars/" + filePath + ".jpg"))
 
-  }
+}
 //==========================================================
 
 getRepoContributors(repoOwner, repoName, function(result) {
