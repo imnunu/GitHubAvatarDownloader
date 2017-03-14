@@ -3,7 +3,8 @@ const fs = require('fs');
 const GITHUB_USER = "imnunu";
 const GITHUB_TOKEN = "5d3b0a24f22cd651932d987240e5bf1a4bbd28c7";
 
-
+var repoOwner = process.argv[2];
+var repoName = process.argv[3];
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
@@ -28,7 +29,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
 }
 //==========================================================
 
-getRepoContributors("jquery", "jquery", function(result) {
+getRepoContributors(repoOwner, repoName, function(result) {
 
   result.forEach(function(avatar){
     // console.log(avatar.avatar_url);
